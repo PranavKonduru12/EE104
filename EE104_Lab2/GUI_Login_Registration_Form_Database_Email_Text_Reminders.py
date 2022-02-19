@@ -751,7 +751,7 @@ def login():
     login_screen.title("Login")
     login_screen.geometry("320x400")
 
-    bg = PhotoImage(file=r"BackgroundPicture.png", height=400, width=320)
+    bg = PhotoImage(file=r"covid_bottle.png", height=400, width=320)
     bg_label = Label(login_screen, image=bg)
     bg_label.image = bg  # keep a reference!
     bg_label.grid(row=0, column=0, columnspan=20, rowspan=20)
@@ -826,7 +826,7 @@ def register_user():
     sheet2.cell(row=current_row2 + 1, column=1).value = username_info
     sheet2.cell(row=current_row2 + 1, column=2).value = password_info
 
-    wb2.save(".\Registration_UserName_Password.xlsx")
+    wb2.save(r"Registration_UserName_Password.xlsx")
 
     username_entry.delete(0, END)
     password_entry.delete(0, END)
