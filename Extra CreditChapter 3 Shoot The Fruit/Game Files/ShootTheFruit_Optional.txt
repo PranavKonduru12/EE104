@@ -1,0 +1,10 @@
+ADDITIONAL OPTIONAL EXTRA CREDIT FEATURE FOR YOU TO EARN POINT TO SHOOT THE FRUIT GAME.
+If your score is currently not zero, then you can earn the difference to a maximum 30 points. For example, You can earn up to 30 points maximum if your score is currently zero. If your current point is 15, then you can earn up to 15 additional points.
+
+ADDTIONAL FEATURE SPECIFICATIONS: 
+
+1. You are training a kid to recognize an apple, then display an apple in the middle of the page and play the sound "apple" to hint the kid to click on the apple. When the kid click on the apple, start the real game. 
+
+2. If the kid click on the apple then it is a hit. If the kid click on other fruits but not the apple repeatly for 3 times, then add one apple at a time until the kid can click on an apple. Stop the program if the miss score hits 100.
+
+3. Add the music to your game using the sample code.
