@@ -1,8 +1,8 @@
 #from tkinter import *
 #from collections import UserString
-from operator import index
-from pickle import FALSE
-from tkinter import W
+#from operator import index
+#from pickle import FALSE
+#from tkinter import W
 #from openpyxl import *
 import pandas as pd
 
@@ -26,8 +26,10 @@ def risk_analysis():
             df.loc[index, 'Risk'] = 'High'
         #print((row['Risk']))
 
+#All functions called here
 def main():
     risk_analysis()
+    #Column written onto new csv file
     df.to_csv(
         r'C:\Users\pskon\workBenchRepo\EE104\Lab6_EE104\lab_6_konduru_pranav\task1_riskFactor\ratings_updated.csv', index=False)
 
