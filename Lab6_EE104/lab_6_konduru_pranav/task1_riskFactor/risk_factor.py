@@ -1,15 +1,9 @@
-#from tkinter import *
-#from collections import UserString
-#from operator import index
-#from pickle import FALSE
-#from tkinter import W
-#from openpyxl import *
 import pandas as pd
 
 #CSV file read here
 #Need to add in filepath of csv file
 df = pd.read_csv(
-    r'C:\Users\pskon\workBenchRepo\EE104\Lab6_EE104\lab_6_konduru_pranav\task1_riskFactor\ratings.csv')
+    r'/Users/pranavkonduru/Local_GIt_Repos/EE104_Projects/Lab6_EE104/lab_6_konduru_pranav/task1_riskFactor/ratings.csv')
 
 
 df['Risk'] = ' '         # Add nenw column
@@ -31,6 +25,6 @@ def main():
     risk_analysis()
     #Column written onto new csv file
     df.to_csv(
-        r'C:\Users\pskon\workBenchRepo\EE104\Lab6_EE104\lab_6_konduru_pranav\task1_riskFactor\ratings_updated.csv', index=False)
+        r'/Users/pranavkonduru/Local_GIt_Repos/EE104_Projects/Lab6_EE104/lab_6_konduru_pranav/task1_riskFactor/ratings_updated.csv', index=False)
 
 main()
