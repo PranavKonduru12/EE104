@@ -94,7 +94,7 @@ RR_list
 
 plt.title("Detected peaks in signal")
 plt.xlim(0,2500)
-plt.plot(dataset.M, alpha=0.5, color='blue', label="raw signal") #Plot semi-transparent HR
+plt.plot(dataset.hart, alpha=0.5, color='blue', label="raw signal") #Plot semi-transparent HR
 plt.plot(mov_avg, color ='green', label="moving average") #Plot moving average
 plt.scatter(peaklist, ybeat, color='red', label="average: %.1f BPM" %bpm) #Plot detected peaks
 plt.legend(loc=4, framealpha=0.6)
