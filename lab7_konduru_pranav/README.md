@@ -1,5 +1,8 @@
 EE104, Lab 7: Audio Signal Processing - Noise Cancelling
+
 Author: Pranav Konduru
+Video: https://drive.google.com/drive/folders/1FyfhCwdYtbQ8IrfX7rdHMwrj-zLmGQSS?usp=sharing
+
 Setup:
 =====
 - Obtained sounds from Kaggle: https://www.kaggle.com/datasets/kinguistics/heartbeat-sounds
