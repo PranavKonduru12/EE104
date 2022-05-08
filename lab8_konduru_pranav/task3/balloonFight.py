@@ -34,7 +34,7 @@ scores = []     #Stores the top three high scores
 def update_high_scores():
     global score, scores
 
-    filename = r"C:\Users\pskon\workBenchRepo\EE104\lab8_konduru_pranav\task3\high-scores.txt"
+    filename = r"/Users/pranavkonduru/Local_GIt_Repos/EE104_Projects/lab8_konduru_pranav/task3/high-scores.txt"
 
     scores = []
     #Get current high score
