@@ -1,4 +1,5 @@
 #from argparse import Actor
+import pgzrun
 from random import randint
 
 #Screen size
@@ -51,3 +52,5 @@ def draw():
     else:
         #Show high score
         display_high_scores()
+
+pgzrun.go() # For running game
