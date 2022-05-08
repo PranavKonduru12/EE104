@@ -121,10 +121,8 @@ def update():
     
     #Handle collision with obstacles
     #Checks to see if baloon hit three or more obstacles
-    if balloon.collidepoint(bird.x, bird.y) or \ 
-       balloon.collidepoint(house.x, house.y) or \
-       balloon.collidepoint(tree.x, tree.y):
-        game_over = True # Ends game
-        update_high_scores()  #Updates high score
+    if balloon.collidepoint(bird.x, bird.y) or balloon.collidepoint(house.x, house.y) or balloon.collidepoint(tree.x, tree.y):
+       game_over = True # Ends game
+       update_high_scores()  #Updates high score
 
 pgzrun.go() # For running game
