@@ -1,4 +1,4 @@
-from argparse import Action
+#from argparse import Actor
 from random import randint
 
 #Screen size
