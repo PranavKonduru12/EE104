@@ -1,7 +1,9 @@
-from argparse import Action
+#from argparse import Action
 from random import randint
-from sys import displayhook
-from tkinter import CENTER
+#from sys import displayhook
+#from tkinter import CENTER
+#from turtle import screensize
+import pgzrun 
 
 #Define size of game window
 WIDTH = 800
@@ -25,6 +27,8 @@ show_countdown = True
 moves_complete = False
 game_over = False
 
+#Adding Actors
+
 #Make dancers appear in starting position when game starts
 dancer = Actor("dancer-start")
 dancer.pos = CENTER_X + 5, CENTER_Y - 40
@@ -38,3 +42,22 @@ down = Actor("down")
 down.pos = CENTER_X, CENTER_Y + 230
 left = Actor("left")
 left.pos = CENTER_X - 60, CENTER_Y + 170
+
+#Drawing the actors
+
+def draw():
+    global game_over, score, say_dance
+    global count, show_countdown
+    #When game is running
+    if not game_over:
+        screen.clear()
+        screen.blit("stage", (0, 0))
+        dancer.draw()
+        up.draw()
+        right.draw()
+        left.draw()
+        screen.draw.text("Score: " + str(score), color="black", topleft=(10, 10))
+
+        return
+
+pgzrun.go()
