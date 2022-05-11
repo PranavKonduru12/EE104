@@ -1,4 +1,5 @@
 #from argparse import Action
+from dis import dis
 from random import randint
 #from sys import displayhook
 #from tkinter import CENTER
@@ -95,8 +96,37 @@ def update_dancer(move):
             dancer.image = "dancer-left" 
             clock.schedule(reset_dancer, 0.5)
     return
+#Displays steps
 def display_moves():
-    pass
+    global move_list, display_list, dance_length
+    global say_dance, show_countdown, current_move
+    #Checks if the list of dance moves has something in it
+    if display_list:
+        #Stores the first move in display_list
+        this_move = display_list[0]
+        #Removes the first item from display_list
+        # so that the second item will be in position 0
+        display_list = display_list[1:]
+        if this_move == 0:
+            #Value of this_move is 0, so it is passed 
+            #on to this function
+            update_dancer(0)
+            clock.schedule(display_moves, 1) 
+        elif this_move == 1:
+            update_dancer(1)
+            clock.schedule(display_moves, 1) 
+        elif this_move == 2:
+            update_dancer(2)
+            #Schedules a call to the function 
+            #display_moves() in one second
+            clock.schedule(display_moves, 1) 
+        else:
+            update_dancer(3)
+            clock.schedule(display_moves, 1) 
+    else:
+        say_dance = True
+        show_countdown = False
+    return
 def generate_moves():
     pass
 def countdown():
