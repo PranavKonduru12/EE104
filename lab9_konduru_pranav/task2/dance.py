@@ -129,8 +129,17 @@ def display_moves():
     return
 def generate_moves():
     pass
+#Displys 3, 2, 1
 def countdown():
-    pass
+    global count, game_over, show_countdown
+    if count > 1:
+        #Updates the value in count by subtracting 1
+        count -= 1
+        clock.schedule(countdown, 1)
+    else:
+        show_countdown = False
+        display_moves()
+    return
 def next_move():
     pass
 #Key interaction with dancer
