@@ -1,6 +1,8 @@
 #from argparse import Action
 from dis import dis
 from random import randint
+from tkinter import font
+from turtle import screensize
 #from sys import displayhook
 #from tkinter import CENTER
 #from turtle import screensize
@@ -59,6 +61,14 @@ def draw():
         left.draw()
         screen.draw.text("Score: " + str(score), color="black", topleft=(10, 10))
 
+        if say_dance:
+            #Will display the "Dance!" in black
+            screen.draw.text("Dance!", color="black",    
+                topleft=(CENTER_X - 65, 150), fontsize=60)
+        if show_countdown:
+            #Display current value of count in black
+            screen.draw.text(str(count), color="black",
+                topleft = (CENTER_X - 8, 150), fontsize=60)
         return
 
 #Musical Statues
