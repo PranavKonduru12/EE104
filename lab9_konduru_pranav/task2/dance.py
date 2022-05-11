@@ -62,10 +62,39 @@ def draw():
 
 #Musical Statues
 
+#Reset Actors
 def reset_dancer():
-    pass
+    global game_over
+    if not game_over:
+        dancer.image = "dancer-start"
+        up.image = "up"
+        right.image = "right"
+        down.image = "down"
+        left.image = "left"
+    return
+#Moving dancer
 def update_dancer(move):
-    pass
+    global game_over # Tells compiler which variable to use
+    if not game_over:
+        # Value tells the dancer which dance move to do
+        if move == 0:
+            up.image = "up-lit" # Highlights colored square 
+            dancer.image = "dancer-up" 
+            # Hold the move for half second before reset_dancer()
+            clock.schedule(reset_dancer, 0.5)
+        elif move == 1:
+            right.image = "right-lit" 
+            dancer.image = "dancer-right" 
+            clock.schedule(reset_dancer, 0.5)
+        elif move == 2:
+            down.image = "down-lit" 
+            dancer.image = "dancer-down" 
+            clock.schedule(reset_dancer, 0.5)
+        else:
+            left.image = "left-lit" 
+            dancer.image = "dancer-left" 
+            clock.schedule(reset_dancer, 0.5)
+    return
 def display_moves():
     pass
 def generate_moves():
@@ -74,8 +103,23 @@ def countdown():
     pass
 def next_move():
     pass
+#Key interaction with dancer
 def on_key_up(key):
-    pass
+    global score, game_over, move_list, current_move
+    if key == keys.UP:
+        update_dancer(0)
+    elif key == keys.RIGHT:
+        update_dancer(1)
+    elif key == keys.DOWN:
+        update_dancer(2)
+    elif key == keys.LEFT:
+        #When arrow key is pressed, update_dancer calls
+        #parameter to make the dancer perform relevant moves
+        update_dancer(3)
+    return
 def update():
     pass
+
+#Random Numbers
+
 pgzrun.go()
