@@ -60,4 +60,22 @@ def draw():
 
         return
 
+#Musical Statues
+
+def reset_dancer():
+    pass
+def update_dancer(move):
+    pass
+def display_moves():
+    pass
+def generate_moves():
+    pass
+def countdown():
+    pass
+def next_move():
+    pass
+def on_key_up(key):
+    pass
+def update():
+    pass
 pgzrun.go()
