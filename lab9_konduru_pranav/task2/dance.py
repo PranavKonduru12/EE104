@@ -149,7 +149,7 @@ def countdown():
         count -= 1
         clock.schedule(countdown, 1)
     else:
-        show_countdown = False
+        show_countdown = False #Removes countdown sequence
         display_moves()
     return
 def next_move():
