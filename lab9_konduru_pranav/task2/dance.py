@@ -57,6 +57,7 @@ def draw():
         screen.blit("stage", (0, 0))
         dancer.draw()
         up.draw()
+        down.draw()
         right.draw()
         left.draw()
         screen.draw.text("Score: " + str(score), color="black", topleft=(10, 10))
