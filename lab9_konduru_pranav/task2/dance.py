@@ -132,10 +132,11 @@ def display_moves():
             #display_moves() in one second
             clock.schedule(display_moves, 1) 
         else:
+            #when display_list is empty
             update_dancer(3)
-            clock.schedule(display_moves, 1) 
+            clock.schedule(display_moves, 1)    #Sets global variable "show_countdown" to false
     else:
-        say_dance = True
+        say_dance = True #Tells darw() function to display "Dance!"   
         show_countdown = False
     return
 def generate_moves():
