@@ -1,8 +1,8 @@
 #from argparse import Action
 from dis import dis
 from random import randint
-from tkinter import font
-from turtle import screensize
+from tkinter import Toplevel, font
+from turtle import Turtle, screensize
 #from sys import displayhook
 #from tkinter import CENTER
 #from turtle import screensize
@@ -70,6 +70,15 @@ def draw():
             #Display current value of count in black
             screen.draw.text(str(count), color="black",
                 topleft = (CENTER_X - 8, 150), fontsize=60)
+    #Game over
+    else:
+        screen.clear()
+        screen.blit("stage", (0, 0))
+        screen.draw.text("Score: " + 
+            str(score), color="black",
+            toplevel=(10, 10))  # Draws sccore in top-left column
+        screen.draw.text("GAME OVER!", color="black", # Draws "GAME OVER!" in black
+            toplevel=(CENTER_X - 130, 1220), fontsize=60)
         return
 
 #Musical Statues
@@ -139,8 +148,21 @@ def display_moves():
         say_dance = True #Tells darw() function to display "Dance!"   
         show_countdown = False
     return
+#Generate sequence of moves 
 def generate_moves():
-    pass
+    global move_list, dance_length, count
+    global show_countdown, say_dance
+    count = 4
+    move_list = []
+    say_dance = False
+    for move in range(0, dance_length):
+        #assigns values 0, 1, 2, or 3 at random variables
+        rand_move = randint(0, 3)
+        move_list.append(rand_move)# Appends new move to the move_list
+        display_list.append(rand_move)
+    show_countdown = True # Tells draw function to display value in count
+    countdown()
+    return
 #Displys 3, 2, 1
 def countdown():
     global count, game_over, show_countdown
