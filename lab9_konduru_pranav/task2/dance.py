@@ -9,7 +9,7 @@ from random import randint
 #from tkinter import CENTER
 #from turtle import screensize
 #from pygame import Actor
-from pgzero.builtins import Actor, clock, music, keys
+from pgzero.builtins import Actor, clock, music
 import pygame
 import pgzrun 
 
