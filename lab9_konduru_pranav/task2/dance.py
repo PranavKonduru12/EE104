@@ -1,5 +1,6 @@
 #from argparse import Action
 from dis import dis
+from http.client import MULTI_STATUS
 from random import randint
 from shutil import move
 from tkinter import Toplevel, font
@@ -77,9 +78,9 @@ def draw():
         screen.blit("stage", (0, 0))
         screen.draw.text("Score: " + 
             str(score), color="black",
-            toplevel=(10, 10))  # Draws sccore in top-left column
+            topleft=(10, 10))  # Draws sccore in top-left column
         screen.draw.text("GAME OVER!", color="black", # Draws "GAME OVER!" in black
-            toplevel=(CENTER_X - 130, 1220), fontsize=60)
+            topleft=(CENTER_X - 130, 220), fontsize=60)
         return
 
 #Musical Statues
@@ -222,6 +223,7 @@ def on_key_up(key):
             game_over = True
     return
 generate_moves()
+music.play("vanishing-horizon") #Start music
 #Make game more challenging
 def update():
     global game_over, current_move, moves_complete
@@ -231,6 +233,8 @@ def update():
             generate_moves() # generates new series of moves
             moves_complete = False
             current_move = 0
+    else:
+        music.stop() # music stop once game is over
 
 #Random Numbers
 
