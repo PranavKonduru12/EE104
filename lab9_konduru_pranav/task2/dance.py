@@ -1,6 +1,7 @@
 #from argparse import Action
 from dis import dis
 from random import randint
+from shutil import move
 from tkinter import Toplevel, font
 from turtle import Turtle, screensize
 #from sys import displayhook
@@ -174,8 +175,16 @@ def countdown():
         show_countdown = False #Removes countdown sequence
         display_moves()
     return
+# Move along the list of generated moves
 def next_move():
-    pass
+    #identifies which moves you're dealing with 
+    global dance_length, current_move, moves_complete
+    #True if there are still some moves to check
+    if current_move < dance_length - 1:
+        current_move = current_move + 1
+    else:
+        #Blocks runs if there are no more move to check
+        moves_complete = True
 #Key interaction with dancer
 def on_key_up(key):
     global score, game_over, move_list, current_move
@@ -190,6 +199,7 @@ def on_key_up(key):
         #parameter to make the dancer perform relevant moves
         update_dancer(3)
     return
+generate_moves()
 def update():
     pass
 
