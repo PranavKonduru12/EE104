@@ -185,19 +185,41 @@ def next_move():
     else:
         #Blocks runs if there are no more move to check
         moves_complete = True
+    return
 #Key interaction with dancer
 def on_key_up(key):
     global score, game_over, move_list, current_move
     if key == keys.UP:
         update_dancer(0)
+        #Scoring on each move
+        if move_list[current_move] == 0:
+            score = score + 1 #Blocks run if player presses correct key
+            next_move()
+        else:
+            game_over = True
     elif key == keys.RIGHT:
         update_dancer(1)
+        if move_list[current_move] == 1:
+            score = score + 1 
+            next_move()
+        else:
+            game_over = True
     elif key == keys.DOWN:
         update_dancer(2)
+        if move_list[current_move] == 2:
+            score = score + 1 
+            next_move()
+        else:
+            game_over = True
     elif key == keys.LEFT:
         #When arrow key is pressed, update_dancer calls
         #parameter to make the dancer perform relevant moves
         update_dancer(3)
+        if move_list[current_move] == 3:
+            score = score + 1 
+            next_move()
+        else:
+            game_over = True
     return
 generate_moves()
 def update():
