@@ -222,8 +222,15 @@ def on_key_up(key):
             game_over = True
     return
 generate_moves()
+#Make game more challenging
 def update():
-    pass
+    global game_over, current_move, moves_complete
+    if not game_over:
+        # Runs if all moves are completed
+        if moves_complete:
+            generate_moves() # generates new series of moves
+            moves_complete = False
+            current_move = 0
 
 #Random Numbers
 
