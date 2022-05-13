@@ -26,6 +26,7 @@ score = 0
 current_move = 0
 count = 4
 dance_length = 4
+rounds = 0
 
 #Keep track of what's happening in game
 say_dance = False
@@ -180,11 +181,13 @@ def countdown():
 # Move along the list of generated moves
 def next_move():
     #identifies which moves you're dealing with 
-    global dance_length, current_move, moves_complete
+    global dance_length, current_move, moves_complete, rounds
     #True if there are still some moves to check
     if current_move < dance_length - 1:
         current_move = current_move + 1
     # Longer Dance
+    # elif (rounds % 3 == 0):
+    #     dance_length = dance_length + 1
     else:
         #Blocks runs if there are no more move to check
         moves_complete = True
