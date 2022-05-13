@@ -1,13 +1,14 @@
 #from argparse import Action
-from dis import dis
-from http.client import MULTI_STATUS
+# from dis import dis
+# from http.client import MULTI_STATUS
 from random import randint
-from shutil import move
-from tkinter import Toplevel, font
-from turtle import Turtle, screensize
+# from shutil import move
+# from tkinter import Toplevel, font
+# from turtle import Turtle, screensize
 #from sys import displayhook
 #from tkinter import CENTER
 #from turtle import screensize
+import pygame
 import pgzrun 
 
 #Define size of game window
@@ -183,6 +184,7 @@ def next_move():
     #True if there are still some moves to check
     if current_move < dance_length - 1:
         current_move = current_move + 1
+    # Longer Dance
     else:
         #Blocks runs if there are no more move to check
         moves_complete = True
