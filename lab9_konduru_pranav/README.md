@@ -2,8 +2,7 @@ EE104, Lab 8: Convolutional Neural Network (CNN)
 ============================================================
 
 Author: Pranav Konduru
-Video: https://drive.google.com/open?id=1GUrgkrJLgN91Z0cEHnYZ5Z-4lwQcWS9k&authuser=pranav.konduru%40sjsu.edu&usp=drive_fs
-Google Colab Link: https://colab.research.google.com/drive/1qxv1Ssd5rIgKMAHI3oQxA5O-0SVRdvRK?usp=sharing
+Video: 
 
 Setup:
 =====
