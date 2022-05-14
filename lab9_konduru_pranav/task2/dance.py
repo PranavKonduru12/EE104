@@ -25,10 +25,11 @@ display_list = []
 
 #Assigned integers needed for the game
 score = 0
+score2 = 0
 current_move = 0
 count = 4
 dance_length = 4
-rounds = 0
+round = 0
 
 #Keep track of what's happening in game
 say_dance = False
@@ -55,7 +56,7 @@ left.pos = CENTER_X - 60, CENTER_Y + 170
 #Drawing the actors
 
 def draw():
-    global game_over, score, say_dance
+    global game_over, score, score2, say_dance
     global count, show_countdown
     #When game is running
     if not game_over:
@@ -67,6 +68,14 @@ def draw():
         right.draw()
         left.draw()
         screen.draw.text("Score: " + str(score), color="black", topleft=(10, 10))
+        screen.draw.text("Score2: " + str(score2), color="black", topleft=(700, 10))
+
+        #Checks whether round is odd or even. If odd, then display player 1. Vice versa for player 2
+        round_odd_even = ( round + 1 ) % 2
+        if  round_odd_even == 1:
+            screen.draw.text("Player 1 ", color="black", topleft=(300, 10))
+        elif round_odd_even == 0:
+             screen.draw.text("Player 2 ", color="black", topleft=(300, 10))  
 
         if say_dance:
             #Will display the "Dance!" in black
@@ -83,8 +92,15 @@ def draw():
         screen.draw.text("Score: " + 
             str(score), color="black",
             topleft=(10, 10))  # Draws sccore in top-left column
+        screen.draw.text("Score2: " + 
+            str(score2), color="black",
+            topleft=(700, 10)) # Draws sccore in top-left column
         screen.draw.text("GAME OVER!", color="black", # Draws "GAME OVER!" in black
             topleft=(CENTER_X - 130, 220), fontsize=60)
+        screen.draw.text("Music: Cadillac horizon, by David Schombert", color="black", # Draws "GAME OVER!" in black
+            topleft=(CENTER_X - 130, 280), fontsize=30)
+        # screen.draw.text("By: David Schombert", color="black", # Draws "GAME OVER!" in black
+        #     topleft=(CENTER_X - 130, 300), fontsize=30)
         return
 
 #Musical Statues
@@ -196,51 +212,94 @@ def next_move():
     return
 #Key interaction with dancer
 def on_key_up(key):
-    global score, game_over, move_list, current_move
-    if key == keys.UP:
-        update_dancer(0)
+    global score, score2, game_over, move_list, current_move, round
+    #print ("current move", current_move)
+    remainder = (round + 1) % 2 # Identifying player turn
+  
+    if ( remainder == 1 ):
+        # Player 1 W, A, S, D keys   
+        if key == keys.W:
+            update_dancer(0)
+            #Scoring on each move
+            if move_list[current_move] == 0:
+                score = score + 1 #Blocks run if player presses correct key
+                next_move()
+            else:
+                game_over = True
+        elif key == keys.D:
+            update_dancer(1)
+            if move_list[current_move] == 1:
+                score = score + 1 #Blocks run if player presses correct key
+                next_move()
+            else:
+                game_over = True
+        elif key == keys.S:
+            update_dancer(2)
+            if move_list[current_move] == 2:
+                score = score + 1 #Blocks run if player presses correct key
+                next_move()
+            else:
+                game_over = True
+        elif key == keys.A:
+            #When arrow key is pressed, update_dancer calls
+            #parameter to make the dancer perform relevant moves
+            update_dancer(3)
+            if move_list[current_move] == 3:
+                score = score + 1 #Blocks run if player presses correct key
+                next_move()
+            else:
+                game_over = True
+    elif (remainder == 0 ):
+        if key == keys.UP:
+            update_dancer(0)
         #Scoring on each move
-        if move_list[current_move] == 0:
-            score = score + 1 #Blocks run if player presses correct key
-            next_move()
-        else:
-            game_over = True
-    elif key == keys.RIGHT:
-        update_dancer(1)
-        if move_list[current_move] == 1:
-            score = score + 1 
-            next_move()
-        else:
-            game_over = True
-    elif key == keys.DOWN:
-        update_dancer(2)
-        if move_list[current_move] == 2:
-            score = score + 1 
-            next_move()
-        else:
-            game_over = True
-    elif key == keys.LEFT:
-        #When arrow key is pressed, update_dancer calls
-        #parameter to make the dancer perform relevant moves
-        update_dancer(3)
-        if move_list[current_move] == 3:
-            score = score + 1 
-            next_move()
-        else:
-            game_over = True
+            if move_list[current_move] == 0:
+                score2 = score2 + 1 #Blocks run if player presses correct key
+                next_move()
+            else:
+                game_over = True
+        elif key == keys.RIGHT:
+            update_dancer(1)
+            if move_list[current_move] == 1:
+                score2 = score2 +1
+                next_move()
+            else:
+                game_over = True
+        elif key == keys.DOWN:
+            update_dancer(2)
+            if move_list[current_move] == 2:
+                score2 = score2 + 1 #Blocks run if player presses correct key
+                next_move()
+            else:
+                game_over = True
+        elif key == keys.LEFT:
+            #When arrow key is pressed, update_dancer calls
+             #paramter to make the dancer perform relevant moves
+            update_dancer(3)
+            if move_list[current_move] == 3:
+                score2 = score2 + 1 #Blocks run if player presses correct key
+                next_move()
+            else:
+                game_over = True
     return
 generate_moves()
 pygame.init() # initialize mixer to play music
-music.play("vanishing-horizon") #Start music
+#music.play("vanishing-horizon") #Start music
+music.play("cadillac") 
 #Make game more challenging
 def update():
-    global game_over, current_move, moves_complete
+    global game_over, current_move, moves_complete, round, dance_length, count
     if not game_over:
         # Runs if all moves are completed
-        if moves_complete:
+        if moves_complete:      # Increments the dance length by 1 after 3 rounds 
+            if ( (round + 1 ) % 3 == 0 ):
+                dance_length = dance_length + 1
+                #count = count + 1
             generate_moves() # generates new series of moves
             moves_complete = False
             current_move = 0
+            round = round + 1 #generates new round
+            # Incremets the dance legnth after three rounds
     else:
         music.stop() # music stop once game is over
 
