@@ -21,7 +21,9 @@ Projects/Activities:
 SIDARTHE implementation:
 ******************************************************************************
 - Run .ipynb file through Jupyter Notebook on Anaconda
-Danced Game
+
+
+Dance Game
 ******************************************************************************
 - Can use Visual Studio Code or Spyder IDE to run the game
 - Requires haedphones or speakers as there is music
