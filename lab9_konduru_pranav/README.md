@@ -1,5 +1,5 @@
-EE104, Lab 8: Convolutional Neural Network (CNN)
-============================================================
+EE104, Lab 9: Epidemiologist's approach to COVID 19 through Implentation of mathematical models on Python
+==========================================================================================================
 
 Author: Pranav Konduru
 Video: 
