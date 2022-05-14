@@ -9,7 +9,7 @@ from random import randint
 #from tkinter import CENTER
 #from turtle import screensize
 #from pygame import Actor
-from pgzero.builtins import Actor, clock, music
+from pgzero.builtins import Actor, clock, music, keys
 import pygame
 import pgzrun 
 
@@ -229,7 +229,7 @@ def on_key_up(key):
         else:
             game_over = True
     return
-#generate_moves()
+generate_moves()
 pygame.init() # initialize mixer to play music
 music.play("vanishing-horizon") #Start music
 #Make game more challenging
