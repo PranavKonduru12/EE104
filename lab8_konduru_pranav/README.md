@@ -22,6 +22,7 @@ CNN:
 ******************************************************************************
 - Running using Google Colab
   - For faster runtime, go to Runtime > Change Runtime Type > GPU
+
 Balloon Game
 ******************************************************************************
 - Can use Visual Studio Code or Spyder IDE to run the game
