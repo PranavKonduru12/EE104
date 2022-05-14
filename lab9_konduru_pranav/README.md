@@ -2,7 +2,8 @@ EE104, Lab 9: Epidemiologist's approach to COVID 19 Analysis through Implentatio
 ===================================================================================================================
 
 Author: Pranav Konduru
-Video: 
+
+Video: https://drive.google.com/drive/folders/1JaIXW4R_ZzBI5LzM11U6tm0uj0r08V7Q?usp=sharing
 
 Setup:
 =====
